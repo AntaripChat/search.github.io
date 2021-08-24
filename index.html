@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    h2{
+        text-align: center;
+        color: currentColor;
+    }
+    hr{
+        width: 30%;
+        height: 4px;
+        background-color: black;
+    }
+    body{
+        margin: 0;
+        padding: 0;
+    }
+    
+  div{
+            width: 350px;
+            height: 300px;
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        
+    }
+
+#myInput {
+            background: none;
+            border: 0;
+            border: 2px solid #0CE4B2;
+            width: 100%;
+            height: 50px;
+            text-align: center;
+            border-radius: 40px;
+            outline: none;
+            font-family: bold italic;
+            font-size: 18px;
+            bottom: 10%;
+}
+    
+    #myInput:hover{
+             box-shadow: 0 0 20px 0 #1B9A7C;
+        }
+
+#myUL {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  margin-top: 5px;
+  
+}
+
+#myUL li a {
+  border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block;
+  border-radius: 10px;    
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #eee;
+}
+</style>
+</head>
+<body>
+
+<h2>Search me</h2>
+    <hr>
+<div>
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search" title="Type in a name">
+
+<ul id="myUL">
+  <li><a href="https://www.amazon.com">Amazon</a></li>
+  <li><a href="https://www.adobe.com/in">Adobe</a></li>
+  <li><a href="#">Amazon in</a></li>
+  <li><a href="#">Apple</a></li>
+  <li><a href="#">Cindy</a></li>
+
+  <li><a href="https://www.bmw.in">BMW in</a></li>
+  <li><a href="#">Bob</a></li>
+    
+    
+  <li><a href="https://facebook.com">Facebook</a></li>  
+    
+  <li><a href="https://www.google.com">Google</a></li>    
+    
+  <li><a href="https://www.instagram.com">Instagram</a></li>
+    
+  <li><a href="https://www.linkedin.com">Linkedln</a></li>    
+
+  <li><a href="#">Calvin</a></li>
+  <li><a href="#">Christina</a></li>
+  <li><a href="#">Cindy</a></li>
+  <li><a href="https://www.tatamotors.com">Tata motors</a></li>
+</ul>
+    </div>
+<script>
+function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+</script>
+
+</body>
+</html>
